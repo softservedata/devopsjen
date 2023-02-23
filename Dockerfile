@@ -1,9 +1,9 @@
 FROM alpine:latest
 
-WORKDIR /root/
-RUN apk update && apk add openjdk11 && apk add maven && apk add git && apk add ttf-dejavu && apk add xvfb && mkdir .jenkins
+RUN apk update && apk add openjdk11 && apk add maven && apk add git && apk add ttf-dejavu && apk add xvfb && mkdir /root/.jenkins
 
-COPY jenkins.war ./.jenkins ./.jenkins/
+WORKDIR /root/
+COPY jenkins.war ./.jenkins /root/.jenkins/
 
 EXPOSE 8080
 ENTRYPOINT ["java","-Djava.awt.headless=true","-jar","jenkins.war"]
