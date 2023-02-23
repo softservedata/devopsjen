@@ -1,8 +1,8 @@
 FROM alpine:latest
 
-RUN apk update && apk add openjdk11 && apk add maven && apk add git && apk add ttf-dejavu && apk add xvfb && mkdir -p /root/.jenkins
-
 WORKDIR /root/
+RUN apk update && apk add openjdk11 && apk add maven && apk add git && apk add ttf-dejavu && apk add xvfb && mkdir .jenkins
+
 COPY jenkins.war ./.jenkins ./.jenkins/
 
 EXPOSE 8080
