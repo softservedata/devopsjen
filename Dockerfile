@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-RUN apk update && apk add openjdk11 && apk add maven && apk add git && apk add ttf-dejavu && apk add xvfb
+RUN apk update && apk add openjdk11 && apk add maven && apk add git && apk add ttf-dejavu && apk add xvfb && mkdir -p /root/.jenkins
 
 WORKDIR /root/
 COPY jenkins.war ./.jenkins ./.jenkins/
