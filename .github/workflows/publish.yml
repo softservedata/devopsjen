@@ -1,4 +1,4 @@
-lname: Publish Docker image
+name: Publish Docker image
 on:
   workflow_dispatch:
 
@@ -8,7 +8,6 @@ env:
 
 jobs:
   build-and-push-image:
-    - name: Push Docker image to GitHub Packages
       runs-on: ubuntu-latest
       permissions:
         packages: write
