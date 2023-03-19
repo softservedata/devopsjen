@@ -10,6 +10,7 @@ import okhttp3.Response;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.lang.reflect.Type;
@@ -18,8 +19,11 @@ import java.util.Arrays;
 import java.util.List;
 
 @Slf4j
-//@SpringBootTest
+@SpringBootTest
 public class RestIT {
+
+    @Value("${server.port}")
+    private String port;
 
     @DisplayName("Reading all contacts by the api")
     @Test
@@ -40,7 +44,7 @@ public class RestIT {
         //
         request = new Request
                 .Builder()
-                .url("http://localhost:8080/api/contacts")
+                .url("http://localhost:" + port + "/api/contacts")
                 .get()
                 .addHeader("accept","*/*")
                 .build();
