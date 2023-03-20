@@ -15,8 +15,8 @@ jobs:
 
       container:
         image: ghcr.io/softservedata/devopsjen:main
-        ports:
-          - 8080:8080
+        #ports:
+        #  - 8080
 
       steps:
         - name: Checkout the repo
@@ -39,5 +39,5 @@ jobs:
         #- name: Check Containers
         #  run: 'docker ps -a'
 
-        - name: Check Curl
-          run: 'curl -i -X GET https://127.0.0.1:8080'
+        - name: Check Java
+          run: 'java -version'
