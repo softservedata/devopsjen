@@ -41,3 +41,6 @@ jobs:
 
         - name: Check Java
           run: 'java -version'
+
+        - name: List files
+          run: 'ls -al'
