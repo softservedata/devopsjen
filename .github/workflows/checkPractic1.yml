@@ -33,8 +33,11 @@ jobs:
         #- name: Download Plugins
         #  run: 'java -jar jenkins-plugin-manager-2.12.11.jar --war jenkins.war --plugin-file plugins.txt --plugin-download-directory data/.jenkins/plugins'
 
-        - name: Check Images
-          run: 'docker images'
+        #- name: Check Images
+        #  run: 'docker images'
 
-        - name: Check Containers
-          run: 'docker ps -a'
+        #- name: Check Containers
+        #  run: 'docker ps -a'
+
+        - name: Check Curl
+          run: 'curl http://127.0.0.1:8080'
