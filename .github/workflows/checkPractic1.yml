@@ -40,4 +40,4 @@ jobs:
         #  run: 'docker ps -a'
 
         - name: Check Curl
-          run: 'curl http://127.0.0.1:8080'
+          run: 'curl -i -X GET https://127.0.0.1:8080'
