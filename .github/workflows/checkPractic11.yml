@@ -15,8 +15,8 @@ jobs:
 
       container:
         image: ghcr.io/softservedata/devopsjen:main
-        ports:
-          - 8080:8080
+        #ports:
+        #  - 8080:8080
         #options: --rm --detach
 
       steps:
@@ -33,6 +33,12 @@ jobs:
 
         - name: Check Java
           run: 'java -version'
+
+        - name: Directory
+          run: 'pwd'
+
+        - name: List root files
+          run: 'ls -al /root/'
 
         - name: Download Jenkins CLI
           run: 'wget http://localhost:8080/jnlpJars/jenkins-cli.jar'
