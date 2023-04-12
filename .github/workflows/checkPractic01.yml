@@ -26,3 +26,8 @@ jobs:
       #  run: 'ls -al /root/'
 
       #- uses: jenkinsci/jfr-setup-action@master
+
+      #- uses: jenkinsci/jfr-runtime-action@master
+      #  with:
+      #    command: run
+      #    jenkinsfile: Jenkinsfile
