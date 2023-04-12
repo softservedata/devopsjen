@@ -1,4 +1,4 @@
-name: Check_Practic_1 pipeline
+name: Check_Practic01 pipeline
 on:
   #push:
   #  branches:
@@ -9,6 +9,10 @@ on:
 jobs:
   checking-pipeline:
       runs-on: ubuntu-latest
+      permissions:
+        packages: write
+        contents: read
+
 
       steps:
         - name: Checks-out your repository
