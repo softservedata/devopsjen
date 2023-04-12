@@ -41,4 +41,8 @@ jobs:
       #  run: 'more jenkinsHome/jobs/job/builds/1/log'
 
       - name: Check Tests Result
-        run: 'if grep -q "Tests run: 4, Failures: 0" jenkinsHome/jobs/job/builds/1/log;  then echo "String exist!"; else echo "Did not find string"; fi'
+        run: 'if grep -q "Tests run: 4, Failures: 0" jenkinsHome/jobs/job/builds/1/log;  then exit 0; else exit 1; fi'
+        #run: 'if grep -q "Tests run: 4, Failures: 0" jenkinsHome/jobs/job/builds/1/log;  then echo "String exist!"; else echo "Did not find string"; fi'
+
+      - name: Check add Contacts
+        run: 'if grep -q "@Test checkAddContacts()" jenkinsHome/jobs/job/builds/1/log;  then exit 0; else exit 1; fi'
