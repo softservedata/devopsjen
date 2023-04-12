@@ -9,10 +9,6 @@ on:
 jobs:
   checking-pipeline:
       runs-on: ubuntu-latest
-      permissions:
-        packages: write
-        contents: read
-
 
       steps:
         - name: Checks-out your repository
@@ -20,14 +16,14 @@ jobs:
           with:
             ref: practic
 
-      - name: Setup jenkinsci
-        uses: jenkinsci/jfr-setup-action@master
+        - name: Setup jenkinsci
+          uses: jenkinsci/jfr-setup-action@master
 
-      - name: Running Jenkinsfile
-        uses: jenkinsci/jfr-runtime-action@master
-        with:
-          command: run
-          jenkinsfile: Jenkinsfile
+        - name: Running Jenkinsfile
+          uses: jenkinsci/jfr-runtime-action@master
+          with:
+            command: run
+            jenkinsfile: Jenkinsfile
 
 
 
