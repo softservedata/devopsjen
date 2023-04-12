@@ -7,38 +7,38 @@ on:
   workflow_dispatch:
 
 jobs:
-  checking-pipeline:
-      runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
 
-      steps:
-        - name: Checks-out your repository
-          uses: actions/checkout@v3
-          with:
-            ref: practic
+    steps:
+      - name: Checks-out your repository
+        uses: actions/checkout@v3
+        with:
+          ref: practic
 
-        - name: Setup jenkinsci
-          uses: jenkinsci/jfr-setup-action@master
+      - name: Setup jenkinsci
+        uses: jenkinsci/jfr-setup-action@master
 
-        - name: Running Jenkinsfile
-          uses: jenkinsci/jfr-runtime-action@master
-          with:
-            command: run
-            jenkinsfile: Jenkinsfile
-
-
+      - name: Running Jenkinsfile
+        uses: jenkinsci/jfr-runtime-action@master
+        with:
+          command: run
+          jenkinsfile: Jenkinsfile
 
 
-        #- name: Install Java 11
-        #  uses: actions/setup-java@v3
-        #  with:
-        #    distribution: 'zulu'
-        #    java-version: '11'
 
-        - name: Check Java
-          run: 'java -version'
 
-        - name: Directory
-          run: 'pwd'
+      #- name: Install Java 11
+      #  uses: actions/setup-java@v3
+      #  with:
+      #    distribution: 'zulu'
+      #    java-version: '11'
 
-        - name: List root files
-          run: 'ls -al /root/'
+      - name: Check Java
+        run: 'java -version'
+
+      - name: Directory
+        run: 'pwd'
+
+      - name: List root files
+        run: 'ls -al /root/'
