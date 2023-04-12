@@ -22,12 +22,12 @@ jobs:
       #- name: Directory
       #  run: 'pwd'
 
-      #- name: List root files
-      #  run: 'ls -al /root/'
+      - name: List root files
+        run: 'ls -al /root/'
 
-      #- uses: jenkinsci/jfr-setup-action@master
+      - uses: jenkinsci/jfr-setup-action@master
 
-      #- uses: jenkinsci/jfr-runtime-action@master
-      #  with:
-      #    command: run
-      #    jenkinsfile: Jenkinsfile
+      - uses: jenkinsci/jfr-runtime-action@master
+        with:
+          command: run
+          jenkinsfile: Jenkinsfile
