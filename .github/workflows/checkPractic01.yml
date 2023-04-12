@@ -16,11 +16,8 @@ jobs:
         with:
           ref: practic
 
-      #- name: Check Java
-      #  run: 'java -version'
-
-      #- name: Directory
-      #  run: 'pwd'
+      - name: Directory
+        run: 'pwd'
 
       - name: List root files
         run: 'ls -al /root/'
@@ -31,3 +28,6 @@ jobs:
         with:
           command: run
           jenkinsfile: Jenkinsfile
+
+      - name: Check Java
+        run: 'java -version'
