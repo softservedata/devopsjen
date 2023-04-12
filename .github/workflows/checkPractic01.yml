@@ -16,14 +16,6 @@ jobs:
         with:
           ref: practic
 
-      - name: Setup jenkinsci
-        uses: jenkinsci/jfr-setup-action@master
-
-      - uses: jenkinsci/jfr-runtime-action@master
-        with:
-          command: run
-          jenkinsfile: Jenkinsfile
-
       - name: Check Java
         run: 'java -version'
 
@@ -32,3 +24,11 @@ jobs:
 
       - name: List root files
         run: 'ls -al /root/'
+
+      - name: Setup jenkinsci
+        uses: jenkinsci/jfr-setup-action@master
+
+      - uses: jenkinsci/jfr-runtime-action@master
+        with:
+          command: run
+          jenkinsfile: Jenkinsfile
