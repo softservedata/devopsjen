@@ -34,6 +34,12 @@ jobs:
         - name: Check Java
           run: 'java -version'
 
+        - name: Directory
+          run: 'pwd'
+
+        - name: List root files
+          run: 'ls -al /root/'
+
         - name: Download Jenkins CLI
           run: 'wget http://localhost:8080/jnlpJars/jenkins-cli.jar'
 
