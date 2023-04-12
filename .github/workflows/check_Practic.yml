@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  checking-pipeline:
     runs-on: ubuntu-latest
 
     steps:
