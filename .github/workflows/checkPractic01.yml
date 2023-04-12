@@ -33,3 +33,6 @@ jobs:
 
       - name: Check Java
         run: 'java -version'
+
+      - name: Check Java
+        run: 'ls -al jenkinsHome/jobs/job/builds'
