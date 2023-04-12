@@ -25,3 +25,4 @@ jobs:
       #- name: List root files
       #  run: 'ls -al /root/'
 
+      #- uses: jenkinsci/jfr-setup-action@master
