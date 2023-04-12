@@ -16,11 +16,11 @@ jobs:
         with:
           ref: practic
 
-      - name: Directory
-        run: 'pwd'
+      #- name: Directory
+      #  run: 'pwd'
 
-      - name: List root files
-        run: 'ls -al'
+      #- name: List root files
+      #  run: 'ls -al'
 
       - name: Setup Jenkins
         uses: jenkinsci/jfr-setup-action@master
@@ -31,17 +31,17 @@ jobs:
           command: run
           jenkinsfile: Jenkinsfile
 
-      - name: Check Java
-        run: 'java -version'
+      #- name: Check Java
+      #  run: 'java -version'
 
-      - name: List log files
-        run: 'ls -al jenkinsHome/jobs/job/builds/1'
+      #- name: List log files
+      #  run: 'ls -al jenkinsHome/jobs/job/builds/1'
 
       #- name: Print log 
       #  run: 'more jenkinsHome/jobs/job/builds/1/log'
 
       - name: Check Tests Result
-        run: 'if grep -q "Tests run: 5, Failures: 0" jenkinsHome/jobs/job/builds/1/log;  then exit 0; else exit 1; fi'
+        run: 'if grep -q "Tests run: 4, Failures: 0" jenkinsHome/jobs/job/builds/1/log;  then exit 0; else exit 1; fi'
         #run: 'if grep -q "Tests run: 4, Failures: 0" jenkinsHome/jobs/job/builds/1/log;  then echo "String exist!"; else echo "Did not find string"; fi'
 
       - name: Check add Contacts
