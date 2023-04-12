@@ -20,7 +20,7 @@ jobs:
         run: 'pwd'
 
       - name: List root files
-        run: 'ls -al /root/'
+        run: 'ls -al'
 
       - name: Setup Jenkins
       - uses: jenkinsci/jfr-setup-action@master
