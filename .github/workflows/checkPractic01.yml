@@ -22,8 +22,10 @@ jobs:
       - name: List root files
         run: 'ls -al /root/'
 
+      - name: Setup Jenkins
       - uses: jenkinsci/jfr-setup-action@master
 
+      - name: Running Jenkinsfile
       - uses: jenkinsci/jfr-runtime-action@master
         with:
           command: run
