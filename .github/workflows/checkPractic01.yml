@@ -25,11 +25,8 @@ jobs:
       - name: List root files
         run: 'ls -al /root/'
 
-      - name: Setup jenkinsci
-        uses: jenkinsci/jfr-setup-action@master
-
-      - name: Running Jenkinsfile
-        uses: jenkinsci/jfr-runtime-action@master
+      - uses: jenkinsci/jfr-setup-action@master
+      - uses: jenkinsci/jfr-runtime-action@master
         with:
           command: run
           jenkinsfile: Jenkinsfile
