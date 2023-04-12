@@ -34,5 +34,8 @@ jobs:
       - name: Check Java
         run: 'java -version'
 
-      - name: Check Java
-        run: 'ls -al jenkinsHome/jobs/job/builds'
+      - name: View app logs
+        run: 'ls -al jenkinsHome/jobs/job/builds/1'
+
+      - name: View pipeline logs
+        run: 'ls -al'
