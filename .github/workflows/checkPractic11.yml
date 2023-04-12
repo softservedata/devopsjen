@@ -55,11 +55,8 @@ jobs:
         - name: List files
           run: 'ls -al'
 
-        - name: Linter Jenkinsfile
-          run: 'more Jenkinsfile | java -jar jenkins-cli.jar -s http://localhost:8080/ -auth admin:admin declarative-linter'
-
-        - name: Create new Job
-          run: 'java -jar jenkins-cli.jar -s http://localhost:8181/ -auth admin:admin create-job pipl < pipl.xml'
-
-        - name: Check Jenkinsfile
-          run: 'more Jenkinsfile | java -jar jenkins-cli.jar -s http://localhost:8080/ -auth admin:admin build pipl -s -v'
+        #- uses: jenkinsci/jfr-setup-action@master
+        #- uses: jenkinsci/jfr-runtime-action@master
+        #  with:
+        #    command: run
+        #    jenkinsfile: Jenkinsfile
