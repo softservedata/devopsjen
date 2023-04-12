@@ -13,23 +13,32 @@ jobs:
         packages: write
         contents: read
 
-      container:
-        image: ghcr.io/softservedata/devopsjen:main
+      #container:
+        #image: ghcr.io/softservedata/devopsjen:main
         #ports:
         #  - 8080:8080
         #options: --rm --detach
 
       steps:
+        - uses: docker-practice/actions-setup-docker@master
+          timeout-minutes: 12
+
+        - name: Check Docker
+          run: 'docker version'
+
+        - name: Setup container
+          run: 'docker run --detach --name jenkins_server -p 8080:8080 ghcr.io/softservedata/devopsjen:main'
+
         - name: Checkout the repo
           uses: actions/checkout@v3
           with:
             ref: practic
 
-      #  - name: Install Java 11
-      #    uses: actions/setup-java@v3
-      #    with:
-      #      distribution: 'zulu'
-      #      java-version: '11'
+        - name: Install Java 11
+          uses: actions/setup-java@v3
+          with:
+            distribution: 'zulu'
+            java-version: '11'
 
         - name: Check Java
           run: 'java -version'
