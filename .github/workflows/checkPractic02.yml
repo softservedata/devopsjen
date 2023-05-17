@@ -1,4 +1,4 @@
-name: Check_Practic01 pipeline
+name: Check_Practic02 pipeline
 on:
   #push:
   #  branches:
@@ -14,7 +14,7 @@ jobs:
       - name: Checks-out your repository
         uses: actions/checkout@v3
         with:
-          ref: practic
+          ref: practic2
 
       #- name: Directory
       #  run: 'pwd'
@@ -40,9 +40,11 @@ jobs:
       #- name: Print log 
       #  run: 'more jenkinsHome/jobs/job/builds/1/log'
 
-      - name: Check Tests Result
-        run: 'if grep -q "Tests run: 4, Failures: 0" jenkinsHome/jobs/job/builds/1/log;  then exit 0; else exit 1; fi'
-        #run: 'if grep -q "Tests run: 4, Failures: 0" jenkinsHome/jobs/job/builds/1/log;  then echo "String exist!"; else echo "Did not find string"; fi'
+      - name: Check Test Running
+        run: 'if ! grep -q "Running com.softserve.verify.RestIT" jenkinsHome/jobs/job/builds/1/log;  then exit 1; fi'
+ 
+      - name: Check Test Running
+        run: 'if grep -q "FAILURE" jenkinsHome/jobs/job/builds/1/log;  then exit 1; fi'
 
-      - name: Check add Contacts
-        run: 'if grep -q "@Test checkAddContacts()" jenkinsHome/jobs/job/builds/1/log;  then exit 0; else exit 1; fi'
+      - name: Check Test Result
+        run: 'if grep -q "Tests run: 1, Failures: 0, Errors: 0, Skipped: 0" jenkinsHome/jobs/job/builds/1/log;  then exit 0; else exit 1; fi'

@@ -157,7 +157,7 @@
     </dependencies>
 
     <build>
-        <finalName>${project.artifactId}</finalName>
+        <finalName>contact</finalName>
 
         <plugins>
 
