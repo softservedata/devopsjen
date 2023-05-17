@@ -28,3 +28,5 @@ pipeline {
     }
 }
 ```
+
+>P.S. You can use a Jenkins instance based on ["Killercoda"](https://killercoda.com/softservedata/scenario/PracticalTask1)
