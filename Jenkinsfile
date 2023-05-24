@@ -3,13 +3,20 @@ pipeline {
 
     environment {
         APP_PORT=9090
+        APP_DIR="${env.JOB_NAME}"
     }
 
     stages {
         
+        stage('Clone') {
+            steps {
+                git url: 'https://github.com/softservedata/devopsjen.git', branch: 'practic2'
+            }
+        }
+        
         stage('Build') {
             steps {
-                echo "START Build"
+                echo "START Build Jobname=$JOB_NAME"
                 sh 'mvn -B package -DskipTests'
             }
         }
@@ -22,10 +29,13 @@ pipeline {
                         timeout(time: 60, unit: "SECONDS")
                     }
                     steps {
-                        echo "START Application"
+                        echo "START Application Direcrory name = ${env.JOB_NAME} APP_DIR = $APP_DIR"
                         script {
                             try {
-                                sh 'java -jar ../check/target/practic.war'
+                                dir("${env.WORKSPACE}/../$APP_DIR"){
+                                    sh "pwd"
+                                    sh 'java -jar target/contact.war'
+                                }
                             } catch (Throwable e) {
                                 echo "Caught ${e.toString()}"
                                 currentBuild.result = "SUCCESS" 
