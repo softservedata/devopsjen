@@ -34,7 +34,7 @@ pipeline {
                         // Open the script block
                             // Open the try block
                                 // Use the dir("TODO") { Commands } construct to return to the target folder
-                                // Run" the **contact.war** application from the **target** folder
+                                // Run the "contact.war" application from the "target" folder
                             // Open the catch block
                                 // Return "success" if the task is stopped after 60 seconds
                             // End of try-catch block
@@ -43,8 +43,8 @@ pipeline {
                 }
                 stage('Running Test') {
                     steps {
-                        // Wait 30 seconds for **contact.war** application to run
-                        // Run only the **RestIT** integration test in the **test** phase of maven
+                        // Wait 30 seconds for "contact.war" application to run
+                        // Run only the "RestIT" integration test in the "test" phase of maven
                     }
                 }
             // End of parallel stages
