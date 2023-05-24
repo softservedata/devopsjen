@@ -44,7 +44,7 @@ pipeline {
                 stage('Running Test') {
                     steps {
                         // Wait 30 seconds for **contact.war** application to run
-                        // Run only the **RestIT** integration test in the **test** phase of ["maven"](https://maven.apache.org/surefire/maven-surefire-plugin/examples/single-test.html)
+                        // Run only the **RestIT** integration test in the **test** phase of maven
                     }
                 }
             // End of parallel stages
