@@ -8,12 +8,6 @@ pipeline {
 
     stages {
         
-        stage('Clone') {
-            steps {
-                git url: 'https://github.com/softservedata/devopsjen.git', branch: 'practic2'
-            }
-        }
-        
         stage('Build') {
             steps {
                 echo "START Build Jobname=$JOB_NAME"
