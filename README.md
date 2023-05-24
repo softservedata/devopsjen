@@ -31,14 +31,14 @@ pipeline {
                     // Use any agent
                     // Set 60 seconds to complete the task
                     steps {
-                        script {
-                            try {
+                        // Open the script block
+                            // Open the try block
                                 // Use the dir("TODO") { Commands } construct to return to the target folder
                                 // Run" the **contact.war** application from the **target** folder
-                            } catch (Throwable e) {
+                            // Open the catch block
                                 // Return "success" if the task is stopped after 60 seconds
-                            }
-                        }
+                            // End of try-catch block
+                        // End of the script block
                     }
                 }
                 stage('Running Test') {
@@ -47,7 +47,7 @@ pipeline {
                         // Run only the **RestIT** integration test in the **test** phase of ["maven"](https://maven.apache.org/surefire/maven-surefire-plugin/examples/single-test.html)
                     }
                 }
-            // End of  in parallel stages
+            // End of parallel stages
         }        
     }
 }
