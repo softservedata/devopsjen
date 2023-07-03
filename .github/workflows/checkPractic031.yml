@@ -1,0 +1,50 @@
+name: Check_Practic031 pipeline
+on:
+  #push:
+  #  branches:
+  #    - main
+  #    - contact
+  workflow_dispatch:
+
+jobs:
+  checking-pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checks-out your repository
+        uses: actions/checkout@v3
+        with:
+          ref: practic3
+
+      #- name: Directory
+      #  run: 'pwd'
+
+      #- name: List root files
+      #  run: 'ls -al'
+
+      - name: Setup Jenkins
+        uses: jenkinsci/jfr-setup-action@master
+
+      - name: Running Jenkinsfile
+        uses: jenkinsci/jfr-runtime-action@master
+        with:
+          command: run
+          jenkinsfile: Jenkinsfile
+
+      #- name: Check Java
+      #  run: 'java -version'
+
+      #- name: List log files
+      #  run: 'ls -al jenkinsHome/jobs/job/builds/1'
+
+      #- name: Print log 
+      #  run: 'more jenkinsHome/jobs/job/builds/1/log'
+
+      - name: Check Test Running
+        run: 'if ! grep -q "Running com.softserve.verify.RestIT" jenkinsHome/jobs/job/builds/1/log;  then exit 1; fi'
+ 
+      - name: Check Test Running
+        run: 'if grep -q "FAILURE!" jenkinsHome/jobs/job/builds/1/log;  then exit 1; fi'
+
+      - name: Check Test Result
+        run: 'if grep -q "Tests run: 1, Failures: 0, Errors: 0, Skipped: 0" jenkinsHome/jobs/job/builds/1/log;  then exit 0; else exit 1; fi'
