@@ -44,7 +44,7 @@ jobs:
         run: 'if ! grep -q "Running com.softserve.verify.RestIT" jenkinsHome/jobs/job/builds/1/log;  then exit 1; fi'
  
       - name: Check Test Running
-        run: 'if grep -q "FAILURE" jenkinsHome/jobs/job/builds/1/log;  then exit 1; fi'
+        run: 'if grep -q "FAILURE!" jenkinsHome/jobs/job/builds/1/log;  then exit 1; fi'
 
       - name: Check Test Result
         run: 'if grep -q "Tests run: 1, Failures: 0, Errors: 0, Skipped: 0" jenkinsHome/jobs/job/builds/1/log;  then exit 0; else exit 1; fi'
