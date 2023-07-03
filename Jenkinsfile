@@ -3,7 +3,6 @@ pipeline {
 
     environment {
         APP_PORT=9090
-        APP_DIR="${env.JOB_NAME}"
     }
 
     stages {
@@ -16,35 +15,9 @@ pipeline {
         }
 
         stage('Integration Test') {
-            parallel {
-                stage('Running Application') {
-                    agent any
-                    options {
-                        timeout(time: 60, unit: "SECONDS")
-                    }
-                    steps {
-                        echo "START Application Direcrory name = ${env.JOB_NAME} APP_DIR = $APP_DIR"
-                        script {
-                            try {
-                                dir("${env.WORKSPACE}/../$APP_DIR"){
-                                    sh "pwd"
-                                    sh 'java -jar target/contact.war'
-                                }
-                            } catch (Throwable e) {
-                                echo "Caught ${e.toString()}"
-                                currentBuild.result = "SUCCESS" 
-                            }
-                        }
-                    }
-                }
-                stage('Running Test') {
-                    steps {
-                        sleep 30 // seconds
-                        echo "START Test"
-                        sh 'mvn test -Dtest=RestIT'
-                        echo "Done Test"
-                    }
-                }
+            steps {
+                echo "START Application Direcrory name = ${env.JOB_NAME}"
+                sh -c 'java -jar target/contact.war & echo $! > pid.file' | sh -c 'echo "start test" ; mvn failsafe:integration-test ; echo -n "***kill process #" ; cat pid.file; kill -9 $(cat pid.file) ; rm -rf pid.file ; echo "done"'
             }
         }        
         
