@@ -16,8 +16,10 @@ pipeline {
 
         stage('Integration Test') {
             steps {
-                echo "START Application Direcrory name = ${env.JOB_NAME}"
-                sh -c 'java -jar target/contact.war & echo $! > pid.file' | sh -c 'echo "start test" ; mvn failsafe:integration-test ; echo -n "***kill process #" ; cat pid.file; kill -9 $(cat pid.file) ; rm -rf pid.file ; echo "done"'
+                script {
+                    echo "START Application Direcrory name = ${env.JOB_NAME}"
+                    sh -c 'java -jar target/contact.war & echo $! > pid.file' | sh -c 'echo "start test" ; mvn failsafe:integration-test ; echo -n "***kill process #" ; cat pid.file; kill -9 $(cat pid.file) ; rm -rf pid.file ; echo "done"'
+                }
             }
         }        
         

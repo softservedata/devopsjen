@@ -7,7 +7,7 @@
 - Create a [build](https://www.baeldung.com/maven-skipping-tests) of the project
 - Write a [multiple commands](https://www.howtogeek.com/269509/how-to-run-two-or-more-terminal-commands-at-once-in-linux/) in one line, separated by '|', '&' and ';' namely:
 - [Run](https://www.baeldung.com/java-run-jar-with-arguments) the **contact** application
-- Save process ID to variable or file;
+- Save (process ID)[https://linuxhandbook.com/find-process-id/] (to variable or file)[https://serverfault.com/questions/205498/how-to-get-pid-of-just-started-process];
 - [Run](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html) the integration test in the **integration-test** phase of maven
 - After the test is finished, stop the main application.
 
