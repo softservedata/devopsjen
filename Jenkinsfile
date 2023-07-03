@@ -18,7 +18,8 @@ pipeline {
             steps {
                 script {
                     echo "START Application Direcrory name = ${env.JOB_NAME}"
-                    sh 'java -jar target/contact.war & echo $! > pid.file | echo "start test" ; mvn failsafe:integration-test ; cat pid.file; kill -9 $(cat pid.file) ; rm -rf pid.file ; echo "done"'
+                    sh 'java -jar target/contact.war & echo $! > pid.file' | sh 'echo "start test" ; mvn failsafe:integration-test ; cat pid.file; kill -9 $(cat pid.file) ; rm -rf pid.file ; echo "done"'
+                    //sh 'java -jar target/contact.war & echo $! > pid.file | echo "start test" ; mvn failsafe:integration-test ; cat pid.file; kill -9 $(cat pid.file) ; rm -rf pid.file ; echo "done"'
                     //sh -c 'java -jar target/contact.war & echo $! > pid.file' | sh -c 'echo "start test" ; mvn failsafe:integration-test ; echo -n "***kill process #" ; cat pid.file; kill -9 $(cat pid.file) ; rm -rf pid.file ; echo "done"'
                 }
             }
