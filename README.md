@@ -9,7 +9,7 @@
 - [Run](https://www.baeldung.com/java-run-jar-with-arguments) the **contact** application
 - Save [process ID](https://linuxhandbook.com/find-process-id/) [to variable or file](https://serverfault.com/questions/205498/how-to-get-pid-of-just-started-process);
 - [Run](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html) the integration test in the **integration-test** phase of maven
-- After the test is finished, stop the main application.
+- After the test is finished, [stop](https://www.linuxfoundation.org/blog/blog/classic-sysadmin-how-to-kill-a-process-from-the-command-line) the main application.
 
 >Use next template for "Jenkinsfile"
 
